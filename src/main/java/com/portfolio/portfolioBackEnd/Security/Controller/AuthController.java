@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin
+@CrossOrigin(origins = "https://portfolio-danilo-bascourleguy.web.app")
 public class AuthController {
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -43,6 +43,7 @@ public class AuthController {
     @Autowired
     JwtProvider jwtProvider;
 
+@CrossOrigin(origins = "https://portfolio-danilo-bascourleguy.web.app")
 @PostMapping("/nuevo")
 public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult){
     if(bindingResult.hasErrors())
@@ -68,6 +69,7 @@ public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, Bi
 return new ResponseEntity(new Mensaje("Usuario Creado"),HttpStatus.CREATED);
     }
 
+@CrossOrigin(origins = "https://portfolio-danilo-bascourleguy.web.app")
 @PostMapping("/login")
 public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult){
     if(bindingResult.hasErrors())
